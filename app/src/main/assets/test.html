@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>click count test</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var i = 0;
+            document.getElementById("test").onclick = function(){
+                document.getElementById("log").innerHTML += "你的第"+i+++"次点击！";
+
+                var bridge = window.bridge
+                bridge.invoke("AppService","close",'{}')
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="test" value="click me" οnclick="" />
+<div id="log" style="width: 300px;height:200px;background: #ccc;overflow: scroll;border: 1px solid #000"></div>
+</body>
+</html>

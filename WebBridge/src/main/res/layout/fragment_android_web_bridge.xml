@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#ffff"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/function_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="5dp">
+
+
+            <ImageButton
+                android:id="@+id/ibt_back"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:onClick="onClick"
+                android:padding="11dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_back_btn_white" />
+
+            <TextView
+                android:id="@+id/imp_close_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/ibt_back"
+                android:background="@null"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:paddingRight="13dp"
+                android:text="关闭"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toLeftOf="@id/function_layout"
+            android:drawablePadding="5dp"
+            android:ellipsize="middle"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="17sp" />
+
+        <!--<TextView-->
+        <!--android:id="@+id/header_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:drawablePadding="5dp"-->
+        <!--android:ellipsize="middle"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingLeft="5dp"-->
+        <!--android:paddingRight="5dp"-->
+        <!--android:singleLine="true"-->
+        <!--android:textColor="?attr/header_text_color"-->
+        <!--android:textSize="@dimen/header_textsize" />-->
+        <ImageView
+            android:id="@+id/imp_change_font_size_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:paddingLeft="13dp"
+            android:paddingTop="17dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="17dp"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_web_function"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"/>
+
+
+    </RelativeLayout>
+
+    <com.yufuchang.bridge.webview.AndroidWebBridgeWebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_header" />
+
+    <FrameLayout
+        android:id="@+id/videoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/load_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_header"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="133dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/ic_net_check_load_error" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="18dp"
+            android:text="加载失败"
+            android:textColor="#666666"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_reload_web"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_corner_r20"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="重新加载"
+            android:textColor="#41AAF6"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_look_web_error_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="onClick"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="20dp"
+                android:text="网络异常"
+                android:textColor="#36A5F6"
+                android:textSize="13sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_header"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_dialog_react_loading"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <ProgressBar
+                android:id="@+id/pb_load"
+                style="@android:style/Widget.ProgressBar"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_centerHorizontal="true"
+                android:indeterminateDrawable="@drawable/react_native_ios_progress"
+                android:indeterminateDuration="1000" />
+
+            <TextView
+                android:id="@+id/tv_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pb_load"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxWidth="200dp"
+                android:maxLines="2"
+                android:textColor="#555555"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
